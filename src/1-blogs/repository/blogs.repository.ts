@@ -1,4 +1,3 @@
-import { db } from '../../db/in-memory.db';
 import { blogCollection } from '../../db/mongo.db';
 import { BlogInputDto } from '../dto/blog-input.dto';
 import { Blog } from '../types/blog';

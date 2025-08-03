@@ -6,12 +6,16 @@ import { HttpStatus } from '../../../core/types/HttpStatus';
 import { BLOGS_PATH, TESTING_PATH } from '../../../core/paths/paths';
 import { generateBasicAuthToken } from '../../utils/generateBasicAuthToken';
 import { BlogInputDto } from '../../../1-blogs/dto/blog-input.dto';
+import { runDB } from '../../../db/mongo.db';
+import { SETTINGS } from '../../../core/settings/settings';
 
 describe('Blog API', () => {
   const app = express();
   setupApp(app);
 
   beforeAll(async () => {
+    await runDB(SETTINGS.MONGO_URL);
+
     await request(app)
       .delete(TESTING_PATH + '/all-data')
       .expect(HttpStatus.NoContent);

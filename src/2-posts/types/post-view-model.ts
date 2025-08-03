@@ -5,5 +5,5 @@ export type PostViewModel = {
   content: string;
   blogId: string;
   blogName: string;
-  createdAt: string;
+  createdAt: Date;
 };
