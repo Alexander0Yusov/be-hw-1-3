@@ -1,8 +1,7 @@
 import { ObjectId, WithId } from 'mongodb';
-import { db } from '../../db/in-memory.db';
 import { PostInputDto } from '../dto/post-input.dto';
 import { Post } from '../types/post';
-import { blogCollection, postCollection } from '../../db/mongo.db';
+import { postCollection } from '../../db/mongo.db';
 
 export const postsRepository = {
   async findAll(): Promise<WithId<Post>[]> {

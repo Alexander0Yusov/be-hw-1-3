@@ -14,7 +14,6 @@ export const blogsRepository = {
 
   async create(blog: Blog): Promise<WithId<Blog>> {
     const insertedResult = await blogCollection.insertOne(blog);
-
     return { ...blog, _id: insertedResult.insertedId };
   },
 

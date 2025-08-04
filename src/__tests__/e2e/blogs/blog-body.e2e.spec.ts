@@ -5,7 +5,7 @@ import { HttpStatus } from '../../../core/types/HttpStatus';
 import { createFakeBlog } from '../../utils/blogs/create-fake-blog';
 import { BLOGS_PATH, TESTING_PATH } from '../../../core/paths/paths';
 import { generateBasicAuthToken } from '../../utils/generateBasicAuthToken';
-import { runDB } from '../../../db/mongo.db';
+import { runDB, stopDB } from '../../../db/mongo.db';
 import { SETTINGS } from '../../../core/settings/settings';
 
 describe('Blog API body validation check', () => {
@@ -18,6 +18,10 @@ describe('Blog API body validation check', () => {
     await request(app)
       .delete(TESTING_PATH + '/all-data')
       .expect(HttpStatus.NoContent);
+  });
+
+  afterAll(async () => {
+    await stopDB();
   });
 
   it(`❌ should not create blog when incorrect body passed; POST /api/blogs'`, async () => {

@@ -87,8 +87,8 @@ describe('Blog API', () => {
     );
 
     expect(response.body).toEqual({
+      ...createResponse.body,
       ...blogUpdateData,
-      id: createResponse.body.id,
     });
   });
 
