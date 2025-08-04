@@ -14,7 +14,7 @@ export async function postBlogHandler(
     description: req.body.description,
     websiteUrl: req.body.websiteUrl,
     createdAt: new Date(),
-    isMembership: true,
+    isMembership: false,
   };
 
   try {
