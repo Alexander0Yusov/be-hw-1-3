@@ -1,3 +1,17 @@
+openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+
+securitySchemes:
+  BasicAuth:
+    type: http
+    scheme: basic
+
+tags:
+  - name: Blogs
+    description: API for managing blogs
+
 paths:
   /api/blogs:
     get:

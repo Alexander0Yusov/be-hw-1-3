@@ -1,3 +1,17 @@
+openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+
+securitySchemes:
+  BasicAuth:
+    type: http
+    scheme: basic
+
+tags:
+  - name: Posts
+    description: API for managing posts
+
 paths:
   /api/posts:
     get:
